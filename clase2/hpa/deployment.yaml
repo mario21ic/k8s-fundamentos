@@ -1,0 +1,23 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: hpa-example
+spec:
+  selector:
+    matchLabels:
+      app: hpa-example
+  replicas: 1
+  template:
+    metadata:
+      labels:
+        app: hpa-example
+    spec:
+      containers:
+      - name: hpa-example
+        image: httpd
+        ports:
+        - name: http-port
+          containerPort: 80
+        resources:
+          requests:
+            cpu: 500m
