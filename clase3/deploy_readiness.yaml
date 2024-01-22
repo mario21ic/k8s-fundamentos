@@ -1,0 +1,30 @@
+kind: Deployment
+apiVersion: apps/v1
+metadata:
+  name: nginx-dp-liveness
+spec:
+  selector:
+    matchLabels:
+      app: nginx
+  replicas: 2
+  template:
+    metadata:
+      labels:
+        app: nginx
+    spec:
+      containers:
+      - name: nginx
+        image: mario21ic/nginx:alpinev1
+        readinessProbe:
+          httpGet:
+            path: /ready
+            port: 80
+          periodSeconds: 2
+          initialDelaySeconds: 0
+          failureThreshold: 3
+          successThreshold: 1
+        ports:
+          - name: web
+            containerPort: 80
+            protocol: TCP
+

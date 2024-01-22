@@ -1,0 +1,12 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-cm-all
+spec:
+  containers:
+  - name: nginx
+    image: nginx:alpine
+    envFrom:
+      - configMapRef:
+          name: nginx-cm
+

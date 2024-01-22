@@ -1,0 +1,22 @@
+kind: Pod
+apiVersion: v1
+metadata:
+  name: pod-cm
+spec:
+  containers:
+  - name: nginx
+    image: nginx:alpine
+    env:
+      - name: MY_KEY
+        value: "MY_VALUE2"
+      - name: foo
+        valueFrom:
+          configMapKeyRef:
+            name: nginx-cm
+            key: foo
+      - name: SPECIAL_LEVEL_KEY
+        valueFrom:
+          configMapKeyRef:
+            name: nginx-cm
+            key: special.how
+
