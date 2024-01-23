@@ -15,4 +15,12 @@ spec:
       volumeMounts:
       - mountPath: /scratch
         name: scratch-volume
+    - image: busybox
+      name: busybox
+      command:
+        - sleep
+        - "3600"
+      volumeMounts:
+      - mountPath: /data
+        name: scratch-volume
 
