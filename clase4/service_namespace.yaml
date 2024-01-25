@@ -1,0 +1,9 @@
+kind: Service
+apiVersion: v1
+metadata:
+  name: nginx-svc
+  namespace: green-team
+spec:
+  ports:
+  - port: 80
+
