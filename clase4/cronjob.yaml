@@ -1,10 +1,10 @@
 kind: CronJob
-apiVersion: batch/v1beta1
+apiVersion: batch/v1
 metadata:
   name: cj-countdown
 spec:
   # minuto, hora, dia del mes, dia de la semana y mes
-  schedule: "2 2 * * *"
+  schedule: "35 22 * * *"
   jobTemplate:
     spec:
       template:
